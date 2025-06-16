@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block title %}Your Matches{% endblock %}
+{% block content %}
+<div class="w-full max-w-2xl">
+  <h1 class="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400
+             bg-clip-text text-transparent">✨ Your Connection ✨</h1>
+
+  {% if matches %}
+    <div class="grid gap-6 sm:grid-cols-2">
+      {% for m in matches %}
+        <div class="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg
+                    border border-white/20 hover:shadow-xl transition-all duration-300
+                    transform hover:scale-[1.02] group">
+          <h3 class="font-semibold mb-2 text-transparent bg-clip-text
+                     bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400
+                     group-hover:from-indigo-500 group-hover:via-purple-500 group-hover:to-pink-500
+                     transition-all duration-300">
+            {{ m.title }}
+          </h3>
+          <p class="text-gray-600 text-sm leading-relaxed">{{ m.body }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="text-center bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-lg
+                border border-white/20">
+      <p class="text-xl text-gray-600">No overlapping answers yet.</p>
+      <p class="text-sm text-gray-500 mt-2">Check back later when both have completed the survey.</p>
+    </div>
+  {% endif %}
+
+  <!-- Share Links -->
+  <div class="mt-8 space-y-4">
+    <div class="bg-white/80 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/20">
+      <h3 class="font-semibold mb-4 text-transparent bg-clip-text
+                 bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
+        Share Your Survey
+      </h3>
+      <div class="space-y-4">
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-2">Your Link:</label>
+          <div class="flex gap-2">
+            <input type="text" value="{{ request.url_for('show_target_form', token=token) }}" readonly
+                   class="flex-1 rounded-lg border border-gray-200 bg-white/50 px-4 py-2 text-sm text-gray-600"/>
+            <button onclick="copyToClipboard(this.previousElementSibling.value)"
+                    class="px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 text-white
+                           hover:from-indigo-600 hover:to-purple-600 transition-all duration-300
+                           transform hover:scale-105 shadow-lg hover:shadow-xl">
+              Copy
+            </button>
+          </div>
+        </div>
+        <div>
+          <label class="block text-sm font-medium text-gray-600 mb-2">Partner's Link:</label>
+          <div class="flex gap-2">
+            <input type="text" value="{{ request.url_for('show_target_form', token=partner_token) }}" readonly
+                   class="flex-1 rounded-lg border border-gray-200 bg-white/50 px-4 py-2 text-sm text-gray-600"/>
+            <button onclick="copyToClipboard(this.previousElementSibling.value)"
+                    class="px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-500 to-purple-500 text-white
+                           hover:from-indigo-600 hover:to-purple-600 transition-all duration-300
+                           transform hover:scale-105 shadow-lg hover:shadow-xl">
+              Copy
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = event.target;
+      const originalText = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.classList.add('bg-green-500', 'hover:bg-green-600');
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.classList.remove('bg-green-500', 'hover:bg-green-600');
+      }, 2000);
+    });
+  }
+  </script>
+</div>
+{% endblock %} 

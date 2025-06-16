@@ -1,0 +1,5 @@
+fastapi
+uvicorn[standard]
+SQLAlchemy
+Jinja2
+python-multipart 

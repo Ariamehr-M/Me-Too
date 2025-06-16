@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Share Link{% endblock %}
+{% block content %}
+<div class="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-xl w-full max-w-md
+            border border-white/20 hover:shadow-2xl transition-all duration-300">
+  <h2 class="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-violet-600 to-fuchsia-600
+             bg-clip-text text-transparent">🎉 First step saved!</h2>
+  
+  <div class="space-y-6">
+    <div>
+      <p class="font-medium text-gray-700 mb-2">Send this link to the other person:</p>
+      <div class="relative">
+        <input readonly class="w-full border border-gray-200 rounded-lg px-4 py-3 pr-12
+                              bg-white/50 backdrop-blur-sm text-sm
+                              focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-200"
+               value="{{ request.url_for('show_target_form', token=share_url.split('/')[-1]) }}">
+        <button onclick="navigator.clipboard.writeText(this.previousElementSibling.value)"
+                class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-gray-400 hover:text-violet-600
+                       transition-colors duration-200">
+          📋
+        </button>
+      </div>
+    </div>
+
+    <div>
+      <p class="font-medium text-gray-700 mb-2">When they finish, view your result here:</p>
+      <div class="relative">
+        <input readonly class="w-full border border-gray-200 rounded-lg px-4 py-3 pr-12
+                              bg-white/50 backdrop-blur-sm text-sm
+                              focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-200"
+               value="{{ request.url_for('show_result', token=result_url.split('/')[-1]) }}">
+        <button onclick="navigator.clipboard.writeText(this.previousElementSibling.value)"
+                class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-gray-400 hover:text-violet-600
+                       transition-colors duration-200">
+          📋
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %} 

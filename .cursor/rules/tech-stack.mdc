@@ -1,0 +1,10 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+-Python FasAPI for Backend
+-SQL Databases, never JSON file storage
+-separate databases for dev, test and prod
+
+-Python tests

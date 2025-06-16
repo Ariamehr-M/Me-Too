@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Match-Step{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            animation: {
+              'gradient': 'gradient 15s ease infinite',
+              'float': 'float 6s ease-in-out infinite',
+              'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+            },
+            keyframes: {
+              gradient: {
+                '0%, 100%': {
+                  'background-size': '400% 400%',
+                  'background-position': '0% 50%'
+                },
+                '50%': {
+                  'background-size': '400% 400%',
+                  'background-position': '100% 50%'
+                },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-10px)' },
+              },
+              'pulse-glow': {
+                '0%, 100%': { 
+                  'box-shadow': '0 0 20px rgba(99, 102, 241, 0.5)',
+                  'transform': 'scale(1)'
+                },
+                '50%': { 
+                  'box-shadow': '0 0 30px rgba(99, 102, 241, 0.8)',
+                  'transform': 'scale(1.02)'
+                },
+              }
+            },
+          },
+        },
+      }
+    </script>
+    {% block head %}{% endblock %}
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900
+             animate-gradient bg-[length:400%_400%]
+             flex flex-col items-center py-10 font-sans text-white
+             antialiased relative overflow-x-hidden">
+    
+    <!-- Premium background elements -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+      <!-- Main gradient overlay -->
+      <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/20 via-purple-500/20 to-pink-500/20"></div>
+      
+      <!-- Animated orbs -->
+      <div class="absolute -top-40 -left-40 w-96 h-96 bg-indigo-500/30 rounded-full mix-blend-screen filter blur-3xl animate-float"></div>
+      <div class="absolute top-20 -right-20 w-96 h-96 bg-purple-500/30 rounded-full mix-blend-screen filter blur-3xl animate-float" style="animation-delay: -2s"></div>
+      <div class="absolute -bottom-40 left-20 w-96 h-96 bg-pink-500/30 rounded-full mix-blend-screen filter blur-3xl animate-float" style="animation-delay: -4s"></div>
+      
+      <!-- Subtle grid overlay -->
+      <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+    </div>
+
+    <div class="w-full max-w-4xl px-4 relative z-10 min-h-screen">
+      {% block content %}{% endblock %}
+    </div>
+
+    <style>
+      .premium-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      }
+
+      .premium-card:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+      }
+
+      .selected-option {
+        background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(168, 85, 247, 0.2));
+        border: 1px solid rgba(99, 102, 241, 0.5);
+        box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        animation: pulse-glow 2s ease-in-out infinite;
+      }
+
+      .selected-option::before {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        background: linear-gradient(135deg, #6366f1, #a855f7);
+        border-radius: inherit;
+        z-index: -1;
+        opacity: 0.5;
+        filter: blur(8px);
+      }
+    </style>
+  </body>
+</html> 

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}Waiting for Match{% endblock %}
+{% block content %}
+<div class="bg-white/80 backdrop-blur-sm rounded-xl p-8 shadow-xl w-full max-w-md
+            border border-white/20 hover:shadow-2xl transition-all duration-300">
+  <h2 class="text-3xl font-bold mb-6 text-center bg-gradient-to-r from-violet-600 to-fuchsia-600
+             bg-clip-text text-transparent">⏳ Waiting for your match...</h2>
+  
+  <div class="space-y-6">
+    <div class="flex justify-center">
+      <div class="relative w-24 h-24">
+        <div class="absolute inset-0 border-4 border-violet-200 rounded-full"></div>
+        <div class="absolute inset-0 border-4 border-t-violet-600 rounded-full animate-spin"></div>
+      </div>
+    </div>
+    
+    <p class="text-center text-gray-600">
+      We're waiting for the other person to complete their answers.<br>
+      This page will automatically update when they're done!
+    </p>
+    
+    <div class="text-center">
+      <a href="{{ request.url_for('show_result', token=token) }}" 
+         class="inline-block px-6 py-3 bg-gradient-to-r from-violet-600 to-fuchsia-600
+                text-white font-medium rounded-lg shadow-lg hover:shadow-xl
+                transform hover:-translate-y-0.5 transition-all duration-200">
+        Check Now
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Auto-refresh every 5 seconds
+  setTimeout(() => {
+    window.location.reload();
+  }, 5000);
+</script>
+{% endblock %} 

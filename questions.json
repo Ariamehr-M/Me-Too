@@ -1,0 +1,94 @@
+[
+  {
+    "code": "A1",
+    "text": "How would you describe this person right now?",
+    "choices": [
+      "Casual friend",
+      "Close friend",
+      "Best friend",
+      "Classmate / Colleague",
+      "Partner",
+      "I have a crush"
+    ]
+  },
+  {
+    "code": "A2",
+    "text": "When you need to share a personal secret, how likely are you to choose them?",
+    "choices": ["Unlikely", "Sometimes", "Very likely"]
+  },
+  {
+    "code": "A3",
+    "text": "When you're upset, how often do you seek their support?",
+    "choices": ["Never", "Occasionally", "Often"]
+  },
+  {
+    "code": "A4",
+    "text": "How much friendly physical contact do you have?",
+    "choices": ["None", "Occasional hugs / high-fives", "A lot"]
+  },
+  {
+    "code": "A5",
+    "text": "Do your close friends or family know this person?",
+    "choices": ["No", "Some of them", "Yes"]
+  },
+  {
+    "code": "A6",
+    "text": "How do you usually handle disagreements together?",
+    "choices": ["We avoid them", "Brief chats", "Comfortable talks"]
+  },
+  {
+    "code": "A7",
+    "text": "How many shared routines or activities do you already have?",
+    "choices": ["0", "1", "2", "3+"]
+  },
+  {
+    "code": "B1",
+    "text": "Would you like to spend more one-on-one time together?",
+    "choices": ["Yes", "Maybe", "No"]
+  },
+  {
+    "code": "B2",
+    "text": "Would you like your relationship to feel more defined or official?",
+    "choices": ["Yes", "We already do", "No"]
+  },
+  {
+    "code": "B3",
+    "text": "Would you like to talk about deeper feelings with them?",
+    "choices": ["Yes", "No"]
+  },
+  {
+    "code": "B4",
+    "text": "Would you like more hugging or hand-holding?",
+    "choices": ["Yes", "Maybe", "No"]
+  },
+  {
+    "code": "B5",
+    "text": "Are you open to going on dates together?",
+    "choices": ["Yes", "Maybe", "No"]
+  },
+  {
+    "code": "B6",
+    "text": "If it felt mutual and comfortable, would you want to kiss them?",
+    "choices": ["Yes", "Maybe", "No"]
+  },
+  {
+    "code": "B7",
+    "text": "Would you consider exploring sexual intimacy in the future?",
+    "choices": ["Yes", "Maybe", "No", "Skip"]
+  },
+  {
+    "code": "B8",
+    "text": "Would you like to introduce each other to close friends or family?",
+    "choices": ["Yes", "No"]
+  },
+  {
+    "code": "B9",
+    "text": "Would you like to plan a trip or project together?",
+    "choices": ["Yes", "No"]
+  },
+  {
+    "code": "B10",
+    "text": "Can you imagine living under the same roof someday?",
+    "choices": ["Yes", "Maybe", "No"]
+  }
+] 
