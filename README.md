@@ -42,4 +42,4 @@ A web application that helps people understand their relationship dynamics throu
 
 ## License
 
-MIT License 
+MIT License
