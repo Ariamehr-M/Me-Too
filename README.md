@@ -9,7 +9,7 @@ A web application that helps people understand their relationship dynamics throu
 - Skip option for sensitive questions
 - Shareable results with unique links
 - Modern, responsive UI with theme support
-- Secure answer comparison
+- Secure answer comparison.
 
 ## Setup
 
