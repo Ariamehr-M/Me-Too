@@ -1,4 +1,4 @@
-# Survey App
+# Survey App 
 
 A web application that helps people understand their relationship dynamics through a structured survey. The app allows two people to take the survey independently and then compares their answers to find common ground and potential areas for growth.
 
